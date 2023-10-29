@@ -110,11 +110,11 @@
 
                 <div class="row">
                     <div class="col-lg-4 col-sm-6" v-for="item in specializations">
-                        <div class="service-card">
+                        <div class="service-card h-100 d-flex flex-column">
                             <div class="service-text">
-                                <i :class="'las '+item.Icon"></i>
-                                <h3><a href="##">{{concatenateWords(item.Name)}} <span>{{getLastWord(item.Name)}}</span></a></h3> <!-- добавить ссылку -->
-                                <p>{{item.Description}}</p>
+                                <i :class="'las '+item.icon"></i>
+                                <h3><a href="##">{{concatenateWords(item.name)}} <span>{{getLastWord(item.name)}}</span></a></h3> <!-- добавить ссылку -->
+                                <p>{{item.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -221,14 +221,13 @@
                     <span>Последние новости из мира юриспруденции от наших адвокатов</span>
                     <h2>Top <span>Blog</span> Related To Law, Cases &amp; Consulting</h2>
                 </div>
-
                 <div class="row">
                     <div class="col-lg-4 col-sm-6">
-                        <div class="blog-card">
+                        <div class="blog-card h-100 d-flex flex-column">
                             <a href="blog-details.html">
                                 <img src="/photos/news.jpg" alt="Image">
                             </a>
-                            <div class="blog-card-text">
+                            <div class="blog-card-text d-flex flex-column">
                                 <h3><a href="blog-details.html">Новость 1</a></h3>
                                 <ul>
                                     <li>
@@ -243,20 +242,21 @@
 
                                 <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
                                     quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-
-                                <a href="blog-details.html" class="read-more">
-                                    Read More <i class="las la-angle-double-right"></i>
+                            </div>
+                            <div class="blog-card-text mt-auto">
+                                <a href="#" class="read-more">
+                                    Читать полностью <i class="las la-angle-double-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-sm-6">
-                        <div class="blog-card">
+                        <div class="blog-card h-100 d-flex flex-column">
                             <a href="blog-details.html">
                                 <img src="assets/img/news&amp;blog/blog2.jpg" alt="Image">
                             </a>
-                            <div class="blog-card-text">
+                            <div class="blog-card-text d-flex flex-column">
                                 <h3><a href="blog-details.html">Broken Bonds: rights after a divorce</a></h3>
                                 <ul>
                                     <li>
@@ -271,20 +271,21 @@
 
                                 <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
                                     quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-
-                                <a href="blog-details.html" class="read-more">
-                                    Read More <i class="las la-angle-double-right"></i>
+                            </div>
+                            <div class="blog-card-text mt-auto">
+                                <a href="#" class="read-more">
+                                    Читать полностью <i class="las la-angle-double-right"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                        <div class="blog-card">
+                        <div class="blog-card h-100 d-flex flex-column">
                             <a href="blog-details.html">
                                 <img src="assets/img/news&amp;blog/blog3.jpg" alt="Image">
                             </a>
-                            <div class="blog-card-text">
+                            <div class="blog-card-text d-flex flex-column">
                                 <h3><a href="blog-details.html">The virtue of justice consists in moderation</a></h3>
                                 <ul>
                                     <li>
@@ -299,9 +300,10 @@
 
                                 <p>At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti
                                     quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-
-                                <a href="blog-details.html" class="read-more">
-                                    Read More <i class="las la-angle-double-right"></i>
+                            </div>
+                            <div class="blog-card-text mt-auto">
+                                <a href="#" class="read-more">
+                                    Читать полностью <i class="las la-angle-double-right"></i>
                                 </a>
                             </div>
                         </div>

@@ -15,9 +15,9 @@ class CreateCourtsTable extends Migration
     {
         Schema::create('courts', function (Blueprint $table) {
             $table->id();
-            $table->string("NameCourt");
-            $table->string("Address");
-            $table->string("NumberPhone");
+            $table->string("name_court");
+            $table->string("address");
+            $table->string("number_phone");
             $table->BigInteger('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();

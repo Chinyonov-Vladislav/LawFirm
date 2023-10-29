@@ -18,9 +18,8 @@ class UserController extends Controller
         if (Auth::user()->id != $id) {
             return redirect("/");
         }
-        $hasClientAccount = DB::table("clients")->where("user_id", '=', $id)->exists();
-        $hasLawyerAccount = DB::table("lawyers")->where("user_id", '=', $id)->exists();
-        if ($hasClientAccount) {
+        if(Auth::user()->role_id == 2) // клиент
+        {
             $dataClient = User::with("client")->find($id)->client;
             if ($dataClient->city_id!=null) {
                 $city_info = DB::table("cities")->where("id", '=', $dataClient->city_id)
@@ -33,10 +32,14 @@ class UserController extends Controller
             $cities = DB::table("cities")->get();
             $my_requests = DB::table("requests")->where("client_id","=", $dataClient->id)->get();
             return view("pages.ClientPersonalCabinet", compact("dataClient", 'cities','my_requests'));
-        } else if ($hasLawyerAccount) {
-            return redirect("/");
-        } else {
-            return redirect("/");
+        }
+        else if(Auth::user()->role_id==3) // адвокат
+        {
+
+        }
+        else // админ
+        {
+            return redirect("/admin");
         }
     }
     public function saveInfoClient(Request $request)
@@ -47,12 +50,12 @@ class UserController extends Controller
             $id_user = Auth::user()->id;
             //$client_info = DB::table("clients")->where("user_id",'=', $id_user)->first();
             $client_info = Client::where("user_id",$id_user)->first();
-            $client_info->FirstName = $request->FirstName;
-            $client_info->SecondName = $request->SecondName;
-            $client_info->MiddleName = $request->MiddleName;
-            $client_info->NumberPhone = $request->NumberPhone;
-            $client_info->Address = $request->Address;
-            $client_info->Birthday = $request->Birthday;
+            $client_info->first_name = $request->first_name;
+            $client_info->second_name = $request->second_name;
+            $client_info->middle_name = $request->middle_name;
+            $client_info->number_phone = $request->number_phone;
+            $client_info->address = $request->address;
+            $client_info->birthday = $request->birthday;
             $client_info->city_id = $request->city_id;
             $client_info->save();
             return response()->json(["error"=>false]);
@@ -63,7 +66,5 @@ class UserController extends Controller
             logger($exception->getMessage());
             return response()->json(["error"=>true, "message"=>$exception->getMessage()]);
         }
-
-
     }
 }

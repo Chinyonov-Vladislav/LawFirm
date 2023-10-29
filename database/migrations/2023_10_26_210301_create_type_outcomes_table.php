@@ -15,7 +15,7 @@ class CreateTypeOutcomesTable extends Migration
     {
         Schema::create('type_outcomes', function (Blueprint $table) {
             $table->id();
-            $table->string("Name");
+            $table->string("name");
             $table->timestamps();
         });
     }

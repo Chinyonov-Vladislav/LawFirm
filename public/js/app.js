@@ -5520,8 +5520,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this2 = this;
     this.$axios.post("/checkAuthUser").then(function (response) {
-      console.log("checkAuthUser");
-      console.log(response);
       _this2.currentUserAuth = response.data.UserAuth;
       _this2.sendInfoAuthUser();
     });
@@ -5983,121 +5981,121 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       maxVisiblePages: 3,
       news: [{
-        "Title": "Новость 1",
-        "Description": "Текст wdadadadwa ",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 1",
+        "description": "Текст wdadadadwa ",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 2",
-        "Description": "Текст dww wdwadwadwadwafawgag wagaawgwaa",
-        "Images": []
+        "title": "Новость 2",
+        "description": "Текст dww wdwadwadwadwafawgag wagaawgwaa",
+        "images": []
       }, {
-        "Title": "Новость 3",
-        "Description": "Текст dwadwad wawdadwawa w afwaa fawfwagag",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 3",
+        "description": "Текст dwadwad wawdadwawa w afwaa fawfwagag",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }, {
-        "Title": "Новость 4",
-        "Description": "Текст dwadadawdw wawfafagwahaahaah",
-        "Images": ["/photos/logo.png"]
+        "title": "Новость 4",
+        "description": "Текст dwadadawdw wawfafagwahaahaah",
+        "images": ["/photos/logo.png"]
       }]
     };
   }
@@ -6582,7 +6580,7 @@ __webpack_require__.r(__webpack_exports__);
           if (response.data.hasAccountLawyer || response.data.hasAccountClient) {
             window.location.href = "/";
           } else if (!response.data.hasAccountClient) {
-            window.location.href = "/fillingClientAccount";
+            window.location.href = "/";
           } else {
             window.location.href = "/";
           }
@@ -6665,6 +6663,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _LayoutComponents_Preloader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../LayoutComponents/Preloader.vue */ "./resources/js/components/LayoutComponents/Preloader.vue");
+//
+//
 //
 //
 //
@@ -7389,15 +7389,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     }
   },
   methods: {
-    Method1: function Method1(id) {
-      console.log("ТЫК" + id);
-    },
     Create: function Create() {
       this.mode = "create";
     },
     Redact: function Redact(item) {
-      this.new_request.topic = item.Topic;
-      this.new_request.description = item.Description;
+      this.new_request.topic = item.topic;
+      this.new_request.description = item.description;
       this.mode = "redact";
       this.id_redacted_request = item.id;
     },
@@ -7542,8 +7539,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
                   return item.id === redacted_data.id;
                 });
                 if (index !== -1) {
-                  _this2.request_from_server[index].Topic = redacted_data.topic;
-                  _this2.request_from_server[index].Description = redacted_data.description;
+                  _this2.request_from_server[index].topic = redacted_data.topic;
+                  _this2.request_from_server[index].description = redacted_data.description;
                 }
                 document.getElementById("CloseButton").click();
               } else {
@@ -7600,7 +7597,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     cancelChanges: function cancelChanges() {
       this.data_client = _objectSpread({}, this.copyUserData);
-      this.birthday_client = this.copyUserData.Birthday;
+      this.birthday_client = this.copyUserData.birthday;
       this.redactUserData = false;
       document.getElementById("submit_button").textContent = "Редактировать";
     },
@@ -37190,7 +37187,7 @@ var render = function () {
                       item.Images.length > 0
                         ? _c("img", {
                             staticClass: "card-img-top my_image",
-                            attrs: { src: item.Images[0], alt: "Image" },
+                            attrs: { src: item.images[0], alt: "Image" },
                           })
                         : _c("img", {
                             staticClass: "card-img-top my_image",
@@ -37203,7 +37200,7 @@ var render = function () {
                         [
                           _c("h3", [
                             _c("a", { attrs: { href: "#" } }, [
-                              _vm._v(_vm._s(item.Title)),
+                              _vm._v(_vm._s(item.title)),
                             ]),
                           ]),
                           _vm._v(" "),
@@ -37224,7 +37221,7 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "short_text" }, [
-                            _vm._v(_vm._s(item.Description)),
+                            _vm._v(_vm._s(item.description)),
                           ]),
                         ]
                       ),
@@ -38317,24 +38314,28 @@ var render = function () {
                 { staticClass: "row" },
                 _vm._l(_vm.specializations, function (item) {
                   return _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
-                    _c("div", { staticClass: "service-card" }, [
-                      _c("div", { staticClass: "service-text" }, [
-                        _c("i", { class: "las " + item.Icon }),
-                        _vm._v(" "),
-                        _c("h3", [
-                          _c("a", { attrs: { href: "##" } }, [
-                            _vm._v(
-                              _vm._s(_vm.concatenateWords(item.Name)) + " "
-                            ),
-                            _c("span", [
-                              _vm._v(_vm._s(_vm.getLastWord(item.Name))),
+                    _c(
+                      "div",
+                      { staticClass: "service-card h-100 d-flex flex-column" },
+                      [
+                        _c("div", { staticClass: "service-text" }, [
+                          _c("i", { class: "las " + item.icon }),
+                          _vm._v(" "),
+                          _c("h3", [
+                            _c("a", { attrs: { href: "##" } }, [
+                              _vm._v(
+                                _vm._s(_vm.concatenateWords(item.name)) + " "
+                              ),
+                              _c("span", [
+                                _vm._v(_vm._s(_vm.getLastWord(item.name))),
+                              ]),
                             ]),
                           ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(_vm._s(item.description))]),
                         ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(item.Description))]),
-                      ]),
-                    ]),
+                      ]
+                    ),
                   ])
                 }),
                 0
@@ -38753,130 +38754,20 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
-              _c("div", { staticClass: "blog-card" }, [
+              _c("div", { staticClass: "blog-card h-100 d-flex flex-column" }, [
                 _c("a", { attrs: { href: "blog-details.html" } }, [
                   _c("img", {
                     attrs: { src: "/photos/news.jpg", alt: "Image" },
                   }),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "blog-card-text" }, [
-                  _c("h3", [
-                    _c("a", { attrs: { href: "blog-details.html" } }, [
-                      _vm._v("Новость 1"),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("i", { staticClass: "las la-calendar" }),
-                      _vm._v(
-                        "\n                                    22 Sep 2021\n                                "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("i", { staticClass: "las la-user-alt" }),
-                      _vm._v(
-                        "\n                                    Thomas Albeny\n                                "
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti\n                                quos dolores et quas molestias excepturi sint occaecati cupiditate."
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "read-more",
-                      attrs: { href: "blog-details.html" },
-                    },
-                    [
-                      _vm._v("\n                                Read More "),
-                      _c("i", { staticClass: "las la-angle-double-right" }),
-                    ]
-                  ),
-                ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
-              _c("div", { staticClass: "blog-card" }, [
-                _c("a", { attrs: { href: "blog-details.html" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: "assets/img/news&blog/blog2.jpg",
-                      alt: "Image",
-                    },
-                  }),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "blog-card-text" }, [
-                  _c("h3", [
-                    _c("a", { attrs: { href: "blog-details.html" } }, [
-                      _vm._v("Broken Bonds: rights after a divorce"),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("i", { staticClass: "las la-calendar" }),
-                      _vm._v(
-                        "\n                                    23 Sep 2021\n                                "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("i", { staticClass: "las la-user-alt" }),
-                      _vm._v(
-                        "\n                                    Rick Barry\n                                "
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti\n                                quos dolores et quas molestias excepturi sint occaecati cupiditate."
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "read-more",
-                      attrs: { href: "blog-details.html" },
-                    },
-                    [
-                      _vm._v("\n                                Read More "),
-                      _c("i", { staticClass: "las la-angle-double-right" }),
-                    ]
-                  ),
-                ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-lg-4 col-sm-6 offset-sm-3 offset-lg-0" },
-              [
-                _c("div", { staticClass: "blog-card" }, [
-                  _c("a", { attrs: { href: "blog-details.html" } }, [
-                    _c("img", {
-                      attrs: {
-                        src: "assets/img/news&blog/blog3.jpg",
-                        alt: "Image",
-                      },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "blog-card-text" }, [
+                _c(
+                  "div",
+                  { staticClass: "blog-card-text d-flex flex-column" },
+                  [
                     _c("h3", [
                       _c("a", { attrs: { href: "blog-details.html" } }, [
-                        _vm._v("The virtue of justice consists in moderation"),
+                        _vm._v("Новость 1"),
                       ]),
                     ]),
                     _vm._v(" "),
@@ -38884,14 +38775,14 @@ var render = function () {
                       _c("li", [
                         _c("i", { staticClass: "las la-calendar" }),
                         _vm._v(
-                          "\n                                    24 Sep 2021\n                                "
+                          "\n                                    22 Sep 2021\n                                "
                         ),
                       ]),
                       _vm._v(" "),
                       _c("li", [
                         _c("i", { staticClass: "las la-user-alt" }),
                         _vm._v(
-                          "\n                                    Julius Erving\n                                "
+                          "\n                                    Thomas Albeny\n                                "
                         ),
                       ]),
                     ]),
@@ -38901,20 +38792,143 @@ var render = function () {
                         "At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti\n                                quos dolores et quas molestias excepturi sint occaecati cupiditate."
                       ),
                     ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "read-more",
-                        attrs: { href: "blog-details.html" },
-                      },
-                      [
-                        _vm._v("\n                                Read More "),
-                        _c("i", { staticClass: "las la-angle-double-right" }),
-                      ]
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "blog-card-text mt-auto" }, [
+                  _c("a", { staticClass: "read-more", attrs: { href: "#" } }, [
+                    _vm._v(
+                      "\n                                Читать полностью "
                     ),
+                    _c("i", { staticClass: "las la-angle-double-right" }),
                   ]),
                 ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-4 col-sm-6" }, [
+              _c("div", { staticClass: "blog-card h-100 d-flex flex-column" }, [
+                _c("a", { attrs: { href: "blog-details.html" } }, [
+                  _c("img", {
+                    attrs: {
+                      src: "assets/img/news&blog/blog2.jpg",
+                      alt: "Image",
+                    },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "blog-card-text d-flex flex-column" },
+                  [
+                    _c("h3", [
+                      _c("a", { attrs: { href: "blog-details.html" } }, [
+                        _vm._v("Broken Bonds: rights after a divorce"),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", [
+                      _c("li", [
+                        _c("i", { staticClass: "las la-calendar" }),
+                        _vm._v(
+                          "\n                                    23 Sep 2021\n                                "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("i", { staticClass: "las la-user-alt" }),
+                        _vm._v(
+                          "\n                                    Rick Barry\n                                "
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v(
+                        "At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti\n                                quos dolores et quas molestias excepturi sint occaecati cupiditate."
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "blog-card-text mt-auto" }, [
+                  _c("a", { staticClass: "read-more", attrs: { href: "#" } }, [
+                    _vm._v(
+                      "\n                                Читать полностью "
+                    ),
+                    _c("i", { staticClass: "las la-angle-double-right" }),
+                  ]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-lg-4 col-sm-6 offset-sm-3 offset-lg-0" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "blog-card h-100 d-flex flex-column" },
+                  [
+                    _c("a", { attrs: { href: "blog-details.html" } }, [
+                      _c("img", {
+                        attrs: {
+                          src: "assets/img/news&blog/blog3.jpg",
+                          alt: "Image",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "blog-card-text d-flex flex-column" },
+                      [
+                        _c("h3", [
+                          _c("a", { attrs: { href: "blog-details.html" } }, [
+                            _vm._v(
+                              "The virtue of justice consists in moderation"
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", [
+                          _c("li", [
+                            _c("i", { staticClass: "las la-calendar" }),
+                            _vm._v(
+                              "\n                                    24 Sep 2021\n                                "
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("li", [
+                            _c("i", { staticClass: "las la-user-alt" }),
+                            _vm._v(
+                              "\n                                    Julius Erving\n                                "
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "At vero eos et accusamus et iusto odio praesentium voluptatum deleniti atque corrupti\n                                quos dolores et quas molestias excepturi sint occaecati cupiditate."
+                          ),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "blog-card-text mt-auto" }, [
+                      _c(
+                        "a",
+                        { staticClass: "read-more", attrs: { href: "#" } },
+                        [
+                          _vm._v(
+                            "\n                                Читать полностью "
+                          ),
+                          _c("i", { staticClass: "las la-angle-double-right" }),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
               ]
             ),
           ]),
@@ -39045,8 +39059,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.data_client.SecondName,
-                      expression: "data_client.SecondName",
+                      value: _vm.data_client.second_name,
+                      expression: "data_client.second_name",
                     },
                   ],
                   staticClass: "form-control",
@@ -39056,7 +39070,7 @@ var render = function () {
                     id: "SecondName",
                     placeholder: "Фамилия",
                   },
-                  domProps: { value: _vm.data_client.SecondName },
+                  domProps: { value: _vm.data_client.second_name },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
@@ -39064,7 +39078,7 @@ var render = function () {
                       }
                       _vm.$set(
                         _vm.data_client,
-                        "SecondName",
+                        "second_name",
                         $event.target.value
                       )
                     },
@@ -39080,8 +39094,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.data_client.FirstName,
-                      expression: "data_client.FirstName",
+                      value: _vm.data_client.first_name,
+                      expression: "data_client.first_name",
                     },
                   ],
                   staticClass: "form-control",
@@ -39091,7 +39105,7 @@ var render = function () {
                     readonly: !_vm.redactUserData,
                     placeholder: "Имя",
                   },
-                  domProps: { value: _vm.data_client.FirstName },
+                  domProps: { value: _vm.data_client.first_name },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
@@ -39099,7 +39113,7 @@ var render = function () {
                       }
                       _vm.$set(
                         _vm.data_client,
-                        "FirstName",
+                        "first_name",
                         $event.target.value
                       )
                     },
@@ -39117,8 +39131,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.data_client.MiddleName,
-                      expression: "data_client.MiddleName",
+                      value: _vm.data_client.middle_name,
+                      expression: "data_client.middle_name",
                     },
                   ],
                   staticClass: "form-control",
@@ -39128,7 +39142,7 @@ var render = function () {
                     readonly: !_vm.redactUserData,
                     placeholder: "Отчество",
                   },
-                  domProps: { value: _vm.data_client.MiddleName },
+                  domProps: { value: _vm.data_client.middle_name },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
@@ -39136,7 +39150,7 @@ var render = function () {
                       }
                       _vm.$set(
                         _vm.data_client,
-                        "MiddleName",
+                        "middle_name",
                         $event.target.value
                       )
                     },
@@ -39154,8 +39168,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.data_client.NumberPhone,
-                      expression: "data_client.NumberPhone",
+                      value: _vm.data_client.number_phone,
+                      expression: "data_client.number_phone",
                     },
                   ],
                   staticClass: "form-control",
@@ -39165,7 +39179,7 @@ var render = function () {
                     readonly: !_vm.redactUserData,
                     placeholder: "Номер телефона",
                   },
-                  domProps: { value: _vm.data_client.NumberPhone },
+                  domProps: { value: _vm.data_client.number_phone },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
@@ -39173,7 +39187,7 @@ var render = function () {
                       }
                       _vm.$set(
                         _vm.data_client,
-                        "NumberPhone",
+                        "number_phone",
                         $event.target.value
                       )
                     },
@@ -39189,8 +39203,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.data_client.Address,
-                      expression: "data_client.Address",
+                      value: _vm.data_client.address,
+                      expression: "data_client.address",
                     },
                   ],
                   staticClass: "form-control",
@@ -39200,13 +39214,13 @@ var render = function () {
                     readonly: !_vm.redactUserData,
                     placeholder: "Адрес",
                   },
-                  domProps: { value: _vm.data_client.Address },
+                  domProps: { value: _vm.data_client.address },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.data_client, "Address", $event.target.value)
+                      _vm.$set(_vm.data_client, "address", $event.target.value)
                     },
                   },
                 }),
@@ -39258,7 +39272,7 @@ var render = function () {
                     _vm._v(" "),
                     _vm._l(_vm.cities, function (city) {
                       return _c("option", { domProps: { value: city.id } }, [
-                        _vm._v(_vm._s(city.Name)),
+                        _vm._v(_vm._s(city.name)),
                       ])
                     }),
                   ],
@@ -39358,11 +39372,6 @@ var render = function () {
                               {
                                 staticClass: "accordion-item",
                                 class: { "d-none": item.id === null },
-                                on: {
-                                  click: function ($event) {
-                                    return _vm.Method1(item.id)
-                                  },
-                                },
                               },
                               [
                                 _c(
@@ -39377,7 +39386,7 @@ var render = function () {
                                       "\n                                        Заявка №" +
                                         _vm._s(item.id) +
                                         ". Тема: " +
-                                        _vm._s(item.Topic) +
+                                        _vm._s(item.topic) +
                                         "\n                                    "
                                     ),
                                   ]
@@ -39391,7 +39400,7 @@ var render = function () {
                                         _c("p", [
                                           _vm._v(
                                             "\n                                            " +
-                                              _vm._s(item.Description) +
+                                              _vm._s(item.description) +
                                               "\n                                        "
                                           ),
                                         ]),
@@ -39399,7 +39408,7 @@ var render = function () {
                                         _c("h6", [
                                           _vm._v("Статус: "),
                                           _c("span", [
-                                            _vm._v(_vm._s(item.Status)),
+                                            _vm._v(_vm._s(item.status)),
                                           ]),
                                         ]),
                                         _vm._v(" "),
@@ -39409,19 +39418,19 @@ var render = function () {
                                             _vm._v(
                                               _vm._s(
                                                 new Date(
-                                                  item.DateRequest
+                                                  item.date_request
                                                 ).getDate()
                                               ) +
                                                 "." +
                                                 _vm._s(
                                                   new Date(
-                                                    item.DateRequest
+                                                    item.date_request
                                                   ).getMonth() + 1
                                                 ) +
                                                 "." +
                                                 _vm._s(
                                                   new Date(
-                                                    item.DateRequest
+                                                    item.date_request
                                                   ).getFullYear()
                                                 )
                                             ),
@@ -39597,6 +39606,7 @@ var render = function () {
                             "data-bs-toggle": "modal",
                             "data-bs-target": "#staticBackdrop",
                           },
+                          on: { click: _vm.Create },
                         },
                         [_vm._v("Создать заявку\n                        ")]
                       ),

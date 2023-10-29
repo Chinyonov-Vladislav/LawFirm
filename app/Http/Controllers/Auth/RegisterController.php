@@ -76,6 +76,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role_id'=>2,
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -89,12 +90,12 @@ class RegisterController extends Controller
             }
             $user = $this->create($request->all());
             $clientAccount = new Client();
-            $clientAccount->FirstName = null;
-            $clientAccount->SecondName = null;
-            $clientAccount->MiddleName = null;
-            $clientAccount->NumberPhone = null;
-            $clientAccount->Address = null;
-            $clientAccount->Birthday = null;
+            $clientAccount->first_name = null;
+            $clientAccount->second_name = null;
+            $clientAccount->middle_name = null;
+            $clientAccount->number_phone = null;
+            $clientAccount->address = null;
+            $clientAccount->birthday = null;
             $clientAccount->city_id = null;
             $clientAccount->user_id = $user->id;
             $clientAccount->save();

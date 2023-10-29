@@ -37,4 +37,3 @@ Route::middleware("auth")->group(function () {
     Route::delete("/deleteRequest/{id}",[RequestController::class, "deleteRequest"])->name("deleteRequest");
     Route::put("/redactRequest",[RequestController::class, 'redactRequest'])->name("redactRequest");
 });
-

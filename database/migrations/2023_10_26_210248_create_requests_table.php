@@ -15,10 +15,10 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->string("Topic");
-            $table->string("Description", 5000);
-            $table->date("DateRequest");
-            $table->enum("Status", ["В рассмотрении","Принято", "Отклонено"]);
+            $table->string("topic");
+            $table->string("description", 5000);
+            $table->date("date_request");
+            $table->enum("status", ["В рассмотрении","Принято", "Отклонено"]);
             $table->BigInteger('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();

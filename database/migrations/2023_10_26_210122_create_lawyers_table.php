@@ -15,17 +15,17 @@ class CreateLawyersTable extends Migration
     {
         Schema::create('lawyers', function (Blueprint $table) {
             $table->id();
-            $table->string("FirstName");
-            $table->string("SecondName");
-            $table->string("MiddleName");
-            $table->date("HireDate")->nullable();
-            $table->json("Images")->nullable();
-            $table->string("NumberPhone");
+            $table->string("first_name");
+            $table->string("second_name");
+            $table->string("middle_name");
+            $table->date("hire_date")->nullable();
+            $table->json("images")->nullable();
+            $table->string("number_phone");
             $table->BigInteger('university_id')->unsigned();
             $table->foreign('university_id')->references('id')->on('universities');
             $table->BigInteger('user_id')->unsigned()->unique(); //для связи один-к-одному
             $table->foreign('user_id')->references('id')->on('users');
-            $table->enum("LevelEducation",["Бакалавр", "Магистр", "Аспирант", "Доктор наук"]);
+            $table->enum("level_education",["Бакалавр", "Магистр", "Аспирант", "Доктор наук"]);
             $table->timestamps();
         });
     }

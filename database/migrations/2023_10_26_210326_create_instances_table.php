@@ -15,9 +15,9 @@ class CreateInstancesTable extends Migration
     {
         Schema::create('instances', function (Blueprint $table) {
             $table->id();
-            $table->date("StartDate");
-            $table->date("EndDate")->nullable();
-            $table->enum("Status", ["В процессе", "Выиграно","Проиграно"])->default("В процессе");
+            $table->date("start_date");
+            $table->date("end_date")->nullable();
+            $table->enum("status", ["В процессе", "Выиграно","Проиграно"])->default("В процессе");
             $table->string("feedback")->nullable();
             $table->unsignedInteger("rating")->nullable();
             $table->BigInteger('request_id')->unsigned()->unique();

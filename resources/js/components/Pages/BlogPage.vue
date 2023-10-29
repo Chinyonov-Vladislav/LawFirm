@@ -10,10 +10,10 @@
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-5" v-for="item in paginatedData" :key="item.id">
                         <div class="blog-card h-100 d-flex flex-column">
-                            <img :src="item.Images[0]"  alt="Image" class="card-img-top my_image" v-if="item.Images.length>0">
+                            <img :src="item.images[0]"  alt="Image" class="card-img-top my_image" v-if="item.Images.length>0">
                             <img src="/photos/News.jpg" alt="Image" class="card-img-top my_image" v-else>
                             <div class="blog-card-text d-flex flex-column">
-                                <h3><a href="#">{{ item.Title }}</a></h3>
+                                <h3><a href="#">{{ item.title }}</a></h3>
                                 <ul>
                                     <li>
                                         <i class="las la-calendar"></i>
@@ -24,7 +24,7 @@
                                         Thomas Albeny
                                     </li>
                                 </ul>
-                                <p class="short_text">{{ item.Description }}</p>
+                                <p class="short_text">{{ item.description }}</p>
                             </div>
                             <div class="blog-card-text mt-auto">
                                 <a href="#" class="read-more">
@@ -126,149 +126,149 @@ export default {
             maxVisiblePages: 3,
             news: [
                 {
-                    "Title": "Новость 1",
-                    "Description": "Текст wdadadadwa ",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 1",
+                    "description": "Текст wdadadadwa ",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 2",
-                    "Description": "Текст dww wdwadwadwadwafawgag wagaawgwaa",
-                    "Images": []
+                    "title": "Новость 2",
+                    "description": "Текст dww wdwadwadwadwafawgag wagaawgwaa",
+                    "images": []
                 },
                 {
-                    "Title": "Новость 3",
-                    "Description": "Текст dwadwad wawdadwawa w afwaa fawfwagag",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 3",
+                    "description": "Текст dwadwad wawdadwawa w afwaa fawfwagag",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
                 {
-                    "Title": "Новость 4",
-                    "Description": "Текст dwadadawdw wawfafagwahaahaah",
-                    "Images": ["/photos/logo.png"]
+                    "title": "Новость 4",
+                    "description": "Текст dwadadawdw wawfafagwahaahaah",
+                    "images": ["/photos/logo.png"]
                 },
             ],
         }

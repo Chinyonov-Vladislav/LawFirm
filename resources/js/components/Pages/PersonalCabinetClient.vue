@@ -14,31 +14,31 @@
                     <div class="form-group mt-2">
                         <label for="SecondName">Фамилия</label>
                         <input type="text" class="form-control" :readonly="!redactUserData" id="SecondName"
-                               v-model="data_client.SecondName" placeholder="Фамилия">
+                               v-model="data_client.second_name" placeholder="Фамилия">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="FirstName">Имя</label>
                         <input type="text" class="form-control" id="FirstName" :readonly="!redactUserData"
-                               v-model="data_client.FirstName" placeholder="Имя">
+                               v-model="data_client.first_name" placeholder="Имя">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="MiddleName">Отчество</label>
                         <input type="text" class="form-control" id="MiddleName" :readonly="!redactUserData"
-                               v-model="data_client.MiddleName" placeholder="Отчество">
+                               v-model="data_client.middle_name" placeholder="Отчество">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="NumberPhone">Номер телефона</label>
                         <input type="text" class="form-control" id="NumberPhone" :readonly="!redactUserData"
-                               v-model="data_client.NumberPhone" placeholder="Номер телефона">
+                               v-model="data_client.number_phone" placeholder="Номер телефона">
                     </div>
 
                     <div class="form-group mt-2">
                         <label for="Address">Адрес</label>
                         <input type="text" class="form-control" id="Address" :readonly="!redactUserData"
-                               v-model="data_client.Address" placeholder="Адрес">
+                               v-model="data_client.address" placeholder="Адрес">
                     </div>
 
                     <div class="form-group mt-2">
@@ -46,7 +46,7 @@
                         <select class="form-control" aria-label="Default select example" :disabled="!redactUserData"
                                 v-model="data_client.city_id">
                             <option value="null">Не указано</option>
-                            <option :value="city.id" v-for="city in cities">{{ city.Name }}</option>
+                            <option :value="city.id" v-for="city in cities">{{ city.name }}</option>
                         </select>
                     </div>
 
@@ -89,21 +89,21 @@
                         <template v-if="requests.length>0">
                             <div class="faq-accordion">
                                 <ul class="accordion">
-                                    <li class="accordion-item" @click="Method1(item.id)" v-bind:class="{'d-none': item.id === null}"
+                                    <li class="accordion-item" v-bind:class="{'d-none': item.id === null}"
                                         v-for="item in paginatedData">
                                         <a class="accordion-title" href="javascript:void(0)" >
                                             <i class="las la-plus"></i>
-                                            Заявка №{{ item.id }}. Тема: {{ item.Topic }}
+                                            Заявка №{{ item.id }}. Тема: {{ item.topic }}
                                         </a>
                                         <div class="accordion-content" v-if="item.id !== null">
                                             <p>
-                                                {{ item.Description }}
+                                                {{ item.description }}
                                             </p>
-                                            <h6>Статус: <span>{{ item.Status }}</span></h6>
-                                            <h6>Дата заявки: <span>{{ new Date(item.DateRequest).getDate() }}.{{
-                                                    new Date(item.DateRequest).getMonth()
+                                            <h6>Статус: <span>{{ item.status }}</span></h6>
+                                            <h6>Дата заявки: <span>{{ new Date(item.date_request).getDate() }}.{{
+                                                    new Date(item.date_request).getMonth()
                                                     + 1
-                                                }}.{{ new Date(item.DateRequest).getFullYear() }}</span></h6>
+                                                }}.{{ new Date(item.date_request).getFullYear() }}</span></h6>
                                             <div class="row">
                                                 <div class="col-6">
                                                     <button id="button_redact" @click="Redact(item)"
@@ -156,7 +156,7 @@
                         </template>
                         <div class="d-flex flex-column" v-else>
                             <h2 class="text-center">У вас еще нет заявок. Обращайтесь к нам прямо сейчас</h2>
-                            <button id="make_request" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                            <button id="make_request" @click="Create" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     class="btn default-btn-one">Создать заявку
                             </button>
                         </div>
@@ -311,15 +311,12 @@ export default {
         },
     },
     methods: {
-        Method1(id) {
-            console.log("ТЫК" + id);
-        },
         Create() {
             this.mode = "create";
         },
         Redact(item) {
-            this.new_request.topic = item.Topic;
-            this.new_request.description = item.Description;
+            this.new_request.topic = item.topic;
+            this.new_request.description = item.description;
             this.mode = "redact";
             this.id_redacted_request = item.id;
         },
@@ -461,8 +458,8 @@ export default {
                                 })
                                 const index = this.request_from_server.findIndex(item => item.id === redacted_data.id);
                                 if (index !== -1) {
-                                    this.request_from_server[index].Topic = redacted_data.topic;
-                                    this.request_from_server[index].Description = redacted_data.description;
+                                    this.request_from_server[index].topic = redacted_data.topic;
+                                    this.request_from_server[index].description = redacted_data.description;
                                 }
                                 document.getElementById("CloseButton").click();
                             } else {
@@ -516,7 +513,7 @@ export default {
         },
         cancelChanges() {
             this.data_client = {...this.copyUserData};
-            this.birthday_client = this.copyUserData.Birthday;
+            this.birthday_client = this.copyUserData.birthday;
             this.redactUserData = false;
             document.getElementById("submit_button").textContent = "Редактировать";
         },
@@ -561,8 +558,7 @@ export default {
                 button_submit.textContent = "Редактировать";
             }
         }
-    }
-    ,
+    },
     props: {
         data_client: {
             default:

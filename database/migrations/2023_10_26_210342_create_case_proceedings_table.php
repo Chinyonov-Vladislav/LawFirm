@@ -15,8 +15,8 @@ class CreateCaseProceedingsTable extends Migration
     {
         Schema::create('case_proceedings', function (Blueprint $table) {
             $table->id();
-            $table->date("StartDate");
-            $table->date("FinishDate");
+            $table->date("start_date");
+            $table->date("finish_date");
             $table->BigInteger('judge_id')->unsigned();
             $table->foreign('judge_id')->references('id')->on('judges');
             $table->BigInteger('instance_id')->unsigned();

@@ -15,12 +15,12 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string("FirstName")->nullable();
-            $table->string("SecondName")->nullable();
-            $table->string("MiddleName")->nullable();
-            $table->string("NumberPhone")->nullable();
-            $table->string("Address")->nullable();
-            $table->date("Birthday")->nullable();
+            $table->string("first_name")->nullable();
+            $table->string("second_name")->nullable();
+            $table->string("middle_name")->nullable();
+            $table->string("number_phone")->nullable();
+            $table->string("address")->nullable();
+            $table->date("birthday")->nullable();
             $table->BigInteger('user_id')->unsigned()->unique();
             $table->foreign('user_id')->references('id')->on('users');
             $table->BigInteger('city_id')->unsigned()->nullable();

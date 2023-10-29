@@ -211,8 +211,6 @@ export default {
     created()
     {
         this.$axios.post(`/checkAuthUser`).then(response=>{
-            console.log("checkAuthUser");
-            console.log(response);
             this.currentUserAuth= response.data.UserAuth;
             this.sendInfoAuthUser();
         });

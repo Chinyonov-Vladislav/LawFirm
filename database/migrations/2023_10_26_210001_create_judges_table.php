@@ -15,9 +15,9 @@ class CreateJudgesTable extends Migration
     {
         Schema::create('judges', function (Blueprint $table) {
             $table->id();
-            $table->string("FirstName");
-            $table->string("SecondName");
-            $table->string("MiddleName");
+            $table->string("first_name");
+            $table->string("second_name");
+            $table->string("middle_name");
             $table->BigInteger('position_id')->unsigned();
             $table->foreign('position_id')->references('id')->on('positions');
             $table->BigInteger('court_id')->unsigned();

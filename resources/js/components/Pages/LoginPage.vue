@@ -147,7 +147,7 @@ export default {
                         }
                         else if (!response.data.hasAccountClient)
                         {
-                            window.location.href="/fillingClientAccount";
+                            window.location.href="/";
                         }
                         else
                         {

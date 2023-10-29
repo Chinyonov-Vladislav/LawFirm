@@ -24,9 +24,9 @@ class RequestController extends Controller
             $user_id = Auth::user()->id;
             $client_id = DB::table("clients")->where("user_id",'=',$user_id)->first()->id;
             $new_request_user = new \App\Models\Request();
-            $new_request_user->Topic = $request->topic;
-            $new_request_user->Description = $request->description;
-            $new_request_user->DateRequest = Carbon::now();
+            $new_request_user->topic = $request->topic;
+            $new_request_user->description = $request->description;
+            $new_request_user->date_request = Carbon::now();
             $new_request_user->client_id = $client_id;
             $new_request_user->save();
             return response()->json(['error'=>false, 'new_request'=>$new_request_user]);
@@ -43,7 +43,7 @@ class RequestController extends Controller
             $client_id = DB::table('clients')->where("user_id",'=',$user_id)->first()->id;
             $request = \App\Models\Request::find($id);
             if($request!=null) {
-                if ($request->Status != "В рассмотрении")
+                if ($request->status != "В рассмотрении")
                 {
                     return response()->json(["error"=>true, 'message'=>"Данная заявка не находится в статусе \"В рассмотрении\""]);
                 }
@@ -89,8 +89,8 @@ class RequestController extends Controller
         }
         if($request_from_bd->user_id == $client_id)
         {
-            $request_from_bd->Topic = $request->topic;
-            $request_from_bd->Description = $request->description;
+            $request_from_bd->topic = $request->topic;
+            $request_from_bd->description = $request->description;
             $request_from_bd->save();
             return response()->json(['error'=>false]);
         }

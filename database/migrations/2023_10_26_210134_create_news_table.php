@@ -15,9 +15,9 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string("Title");
-            $table->string("Description", 5000);
-            $table->json("Images")->nullable();
+            $table->string("title");
+            $table->string("description", 5000);
+            $table->json("images")->nullable();
             $table->BigInteger('lawyer_id')->unsigned();
             $table->foreign('lawyer_id')->references('id')->on('lawyers');
             $table->timestamps();

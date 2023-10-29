@@ -15,7 +15,7 @@ class CreateCourtStagesTable extends Migration
     {
         Schema::create('court_stages', function (Blueprint $table) {
             $table->id();
-            $table->string("Name");
+            $table->string("name");
             $table->timestamps();
         });
     }
