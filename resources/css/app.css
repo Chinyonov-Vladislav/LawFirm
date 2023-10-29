@@ -1,0 +1,52 @@
+@media screen and (min-width: 992px) {
+    .advantages_left
+    {
+        display: flex;
+        justify-content: end;
+    }
+    .advantages_right
+    {
+        display: flex;
+        justify-content: start;
+    }
+}
+@media screen and (min-width: 775px) {
+    .my_padding_top
+    {
+        padding-top: 150px;
+    }
+}
+@media screen and (min-width: 990px) {
+    .my_padding_top_bottom
+    {
+        padding-top: 150px;
+        padding-bottom: 100px
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 989.99px) {
+    .my_padding_top_bottom
+    {
+        padding-top: 160px;
+        padding-bottom: 100px
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 774.99px) {
+    .my_padding_top
+    {
+        padding-top: 165px;
+    }
+}
+.ymap-container{
+    width: 100%;
+    height: 400px;
+}
+.ptb-25
+{
+    padding-bottom: 25px;
+    padding-top:25px;
+}
+.ptb-50
+{
+    padding-bottom: 50px;
+    padding-top:50px;
+}
