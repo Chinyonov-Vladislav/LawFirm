@@ -3,11 +3,10 @@
         <my-preloader></my-preloader>
         <my-header></my-header>
         <div class="sign-in-area ptb-100">
-            <div class="container" style="margin-top: 137px;">
+            <div class="container" style="margin-top: 100px;">
                 <div class="section-title">
-                    <h2>Sign in to Your Account!</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quas cumque iste veniam id
-                        dolorem deserunt ratione error voluptas rem ullam.</p>
+                    <breadcrumbs :prop_breadcrumbs="breadcrumbs"></breadcrumbs>
+                    <h2>Авторизация</h2>
                 </div>
                 <div class="sign-in-form">
                     <form id="login_form" @submit.prevent="ValidateAndSendForm">
@@ -37,21 +36,26 @@
                                 <div class="col-lg-12 ">
                                     <ul>
                                         <li v-for="item in errors.textPasswordErrors">
-                                            <i class="las la-exclamation-circle"></i>
                                             {{item.message}}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group form-check text-center">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="remember">
-                            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                        <div class="row">
+                            <div class="form-group form-check text-center col-6">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" v-model="remember">
+                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                            </div>
+                            <p class="col-6 d-flex justify-content-end">
+                                <a href="/restorePassword" style="color:#c8242f">Забыли пароль?</a>
+                            </p>
                         </div>
+
                         <div class="text-center">
                             <button type="submit" class="btn default-btn-one">Войти</button>
                             <p class="account-decs">
-                                Not a member? <a href="/register">Sign Up</a>
+                                Еще нет аккаунта? <a href="/register">Зарегистрироваться</a>
                             </p>
                         </div>
                     </form>
@@ -75,9 +79,16 @@ export default {
             errors: {
                 textEmailErrors: [],
                 textPasswordErrors: []
-
-            }
+            },
+            breadcrumbs:{default:null}
         }
+    },
+    props:{
+        prop_breadcrumbs: {default:null}
+    },
+    created()
+    {
+        this.breadcrumbs = this.prop_breadcrumbs;
     },
     methods: {
         ControlElementOnForm(bool_block)
@@ -182,6 +193,15 @@ export default {
             if (this.email.length <= 0) {
                 this.errors.textEmailErrors.push({message: "Поле для ввода email-адреса не заполнено!"});
                 hasError = true;
+            }
+            else
+            {
+                let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+                if(!regex.test(this.email))
+                {
+                    this.errors.textEmailErrors.push({"message": "Введите корректный email-адрес!"});
+                    hasError = true;
+                }
             }
             if (this.password.length < 8) {
                 this.errors.textPasswordErrors.push({message: "Текст в поле \"Пароль\" слишком короткий. Должно быть как минимум 8 символов!"})

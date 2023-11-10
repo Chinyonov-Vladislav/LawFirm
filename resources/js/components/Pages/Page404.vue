@@ -7,7 +7,7 @@
                         <img class="error-image" src="/photos/error.png" alt="image">
                         <h2>Page Not Found</h2>
                         <div class="error-btn">
-                            <a href="##">Back To Home</a>
+                            <a href="/">Back To Home</a>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,17 @@ class PositionSeeder extends Seeder
      */
     public function run()
     {
-        Position::factory()->count(5)->create();
+        //Position::factory()->count(5)->create();
+        $positions = [
+            ["name"=>"Судьи окружного уровня",],
+            ["name"=>"Судьи апелляционного уровня",],
+            ["name"=>"Судьи верховного суда",],
+        ];
+        foreach ($positions as $position)
+        {
+            Position::create([
+                'name' => $position['name'],
+            ]);
+        }
     }
 }

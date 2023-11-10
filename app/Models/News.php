@@ -8,8 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
+    protected $table="news";
+    protected $fillable = [
+        "title",
+        "description",
+        "images",
+        'lawyer_id'
+    ];
     protected $casts = [
-        'Images' => 'array',
+        'images' => 'array',
     ];
     public function Lawyer()
     {

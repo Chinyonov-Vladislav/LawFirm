@@ -22,9 +22,9 @@ class CreateClientsTable extends Migration
             $table->string("address")->nullable();
             $table->date("birthday")->nullable();
             $table->BigInteger('user_id')->unsigned()->unique();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
             $table->BigInteger('city_id')->unsigned()->nullable();
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete();
             $table->timestamps();
         });
     }

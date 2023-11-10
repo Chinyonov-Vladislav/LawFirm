@@ -47,7 +47,11 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('pages.registrationPage');
+        $breadcrumbs = [
+            ['link' => route('mainPage'), 'text' => 'Домашняя страница'],
+            ['link'=>route('register'),'text'=>"Регистрация"]
+        ];
+        return view('pages.registrationPage', compact("breadcrumbs"));
     }
 
     /**

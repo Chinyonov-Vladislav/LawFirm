@@ -5,56 +5,29 @@
         <!-- Choose Area -->
         <div class="choose-area about-page-area pb-70 my_padding_top">
             <div class="container">
-                <div class="section-title text-center">
+                <div class="section-title text-center mt-faq-title">
+                    <breadcrumbs :prop_breadcrumbs="breadcrumbs"></breadcrumbs>
                     <h2>Мы - ведущие юристы</h2>
                     <p>Мы гордимся тем, что предоставляем высококвалифицированные юридические услуги, ориентированные на
                         защиту прав и интересов наших клиентов. Наш коллектив состоит из ведущих юристов, обладающих
                         богатым опытом и глубокими знаниями в различных областях права.</p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="choose-card">
-                            <i class="las la-chart-pie"></i>
-                            <h3>Long Experience</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </div>
-
-                        <div class="choose-card">
-                            <i class="las la-chart-bar"></i>
-                            <h3>Our Success Cases</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </div>
-
-                        <div class="choose-card">
-                            <i class="las la-user-tie"></i>
-                            <h3>Professional Attorneys</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="row mt-1" v-for="item in info_us.slice(0,3)">
+                            <div class="col-12 d-flex align-items-center">
+                                <i :class="item.icon+' icon_style'"></i>
+                                <h3 class="ms-2">{{item.message}}</h3>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
-                        <div class="choose-card">
-                            <i class="lab la-accessible-icon"></i>
-                            <h3>Legal Service</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </div>
-
-                        <div class="choose-card">
-                            <i class="las la-balance-scale"></i>
-                            <h3>Free Consulting</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </div>
-
-                        <div class="choose-card">
-                            <i class="las la-user-astronaut"></i>
-                            <h3>24/7 Support</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        <div class="row mt-1" v-for="item in info_us.slice(3,6)">
+                            <div class="col-12 d-flex align-items-center">
+                                <i :class="item.icon+' icon_style'"></i>
+                                <h3 class="ms-2">{{item.message}}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,47 +36,12 @@
         <!-- End Choose Area -->
 
         <!-- Fun Fact Area -->
-        <div class="fun-facts-area pb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="signle-fun-fact">
-                            <i class="las la-balance-scale"></i>
-                            <h3><span class="odometer" data-count="5600">00</span>
-                                +</h3>
-                            <p>Solved Cases</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="signle-fun-fact">
-                            <i class="las la-gavel"></i>
-                            <h3><span class="odometer" data-count="4000">00</span>
-                                +</h3>
-                            <p>Cases Won</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="signle-fun-fact">
-                            <i class="las la-trophy"></i>
-                            <h3><span class="odometer" data-count="1500">00</span>
-                                +</h3>
-                            <p>Awards Won</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="signle-fun-fact">
-                            <i class="lab la-gitkraken"></i>
-                            <h3><span class="odometer" data-count="10">00</span>
-                            </h3>
-                            <p>Top 10 Law Firms</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <facts
+            :prop_count_cases='common_count_instances'
+            :prop_count_winner_cases='winner_instances'
+            :prop_count_lawyers='count_lawyers'
+            :prop_count_clients='count_clients'
+        ></facts>
         <!-- Ends Fun Fact Area -->
 
         <!-- About Video Area -->
@@ -124,61 +62,7 @@
         </div>
         <!-- End About Video Area -->
         <!-- Contact Area -->
-        <div class="about-area ptb-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title" style="text-align: center;">
-                            <span>Наши преимущества</span>
-                            <h2>We Are Providing <span>Top Services</span> With Excellent Performance</h2>
-                        </div>
-                        <div class="row about-text">
-                            <div class="col-lg-6 advantages_left">
-                                <ul>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        100% Success Rate
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        No Need Extra Cost for Consultation
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        Expert Legal Service
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        Highly Recommendation
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-lg-6 advantages_right">
-                                <ul>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        Fast Support
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        High Court Performance
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        Free Counseling
-                                    </li>
-                                    <li>
-                                        <i class="las la-check-square"></i>
-                                        Quick Complete Case
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <our-advantages></our-advantages>
         <!-- End Contact Area -->
         <div class="contact-area contact-two ptb-25">
 
@@ -188,13 +72,15 @@
                         <div class="contact-text">
                             <div class="section-title">
                                 <h2>Свяжитесь С Нами Сегодня, Свяжитесь с Экспертом</h2>
-                                <p>Если у вас возникли юридические вопросы или потребности, обратитесь к нашим ведущим юристам. Мы готовы помочь вам в защите ваших прав и интересов. Свяжитесь с нами сегодня, и мы обеспечим вас качественными юридическими решениями.</p>
+                                <p>Если у вас возникли юридические вопросы или потребности, обратитесь к нашим ведущим
+                                    юристам. Мы готовы помочь вам в защите ваших прав и интересов. Свяжитесь с нами
+                                    сегодня, и мы обеспечим вас качественными юридическими решениями.</p>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="contact-card">
                                         <span>Номер телефона</span>
-                                        <h3><a href="tel:+0123456987">+0123 456 987</a></h3>
+                                        <h3><a href="##">+7(949) 456-73-89</a></h3>
                                     </div>
                                 </div>
 
@@ -255,9 +141,21 @@ export default {
         return {
             currentUserAuth: false,
             coords: [
-                54.82896654088406,
-                39.831893822753904,
+                48.005769, 37.796687
             ],
+            breadcrumbs: {default: null},
+            common_count_instances: {default: 0},
+            winner_instances: {default: 0},
+            count_lawyers:{default:0},
+            count_clients:{default:0},
+            info_us: [
+                {icon: "las la-chart-pie", message: "Большой опыт"},
+                {icon: "las la-chart-bar", message: "Успешные кейсы"},
+                {icon: "las la-user-tie", message: "Профессиональные адвокаты"},
+                {icon: "lab la-accessible-icon", message: "Качественный сервис"},
+                {icon: "las la-balance-scale", message: "Бесплатная консультация"},
+                {icon: "las la-user-astronaut", message: "Поддержка 24/7"},
+            ]
         }
     },
     mounted() {
@@ -266,11 +164,43 @@ export default {
             console.log(msg);
         })
     },
-    methods:
-        {},
+    created() {
+        this.breadcrumbs = this.prop_breadcrumbs;
+        this.common_count_instances = this.prop_common_count_instances;
+        this.winner_instances = this.prop_winner_instances;
+        this.count_lawyers = this.prop_count_lawyers;
+        this.count_clients = this.prop_count_clients;
+    },
+    props: {
+        prop_breadcrumbs: {default: null},
+        prop_common_count_instances: {default: 0},
+        prop_winner_instances: {default: 0},
+        prop_count_lawyers:{default:0},
+        prop_count_clients:{default:0}
+    },
+    methods: {},
 }
 </script>
 
 <style scoped>
+.my_about_us_card {
+    padding-left: 100px;
+    position: relative;
+    margin-bottom: 50px;
+}
 
+.icon_style {
+    background-color: #ffffff;
+    width: 70px;
+    height: 70px;
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+    line-height: 70px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 20px #eeeeee;
+    box-shadow: 0px 0px 20px #eeeeee;
+    font-size: 30px;
+    color: #c8242f;
+}
 </style>

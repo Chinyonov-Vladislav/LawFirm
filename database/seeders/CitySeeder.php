@@ -15,6 +15,15 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        City::factory()->count(5)->create();
+        //City::factory()->count(5)->create();
+        $cities = [
+            ["name"=>"Москва"],
+            ["name"=>"Ростов-на-Дону"],
+            ["name"=>"Воронеж"]
+        ];
+        foreach ($cities as $city)
+        {
+            City::create(['name' => $city['name']]);
+        }
     }
 }

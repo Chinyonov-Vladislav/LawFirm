@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string("name");
             $table->BigInteger('specialization_id')->unsigned();
-            $table->foreign('specialization_id')->references('id')->on('specializations');
+            $table->foreign('specialization_id')->references('id')->on('specializations')->restrictOnDelete();
             $table->timestamps();
         });
     }

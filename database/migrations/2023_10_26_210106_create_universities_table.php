@@ -17,7 +17,7 @@ class CreateUniversitiesTable extends Migration
             $table->id();
             $table->string("name");
             $table->BigInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete();
             $table->timestamps();
         });
     }

@@ -8,6 +8,10 @@ class FAQController extends Controller
 {
     public function index()
     {
-        return view("pages.FAQPage");
+        $breadcrumbs = [
+            ['link' => route('mainPage'), 'text' => 'Домашняя страница'],
+            ['link'=>route('faq'),'text'=>"FAQ"]
+        ];
+        return view("pages.FAQPage", compact("breadcrumbs"));
     }
 }

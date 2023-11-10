@@ -22,9 +22,9 @@ class CreateLawyersTable extends Migration
             $table->json("images")->nullable();
             $table->string("number_phone");
             $table->BigInteger('university_id')->unsigned();
-            $table->foreign('university_id')->references('id')->on('universities');
+            $table->foreign('university_id')->references('id')->on('universities')->restrictOnDelete();
             $table->BigInteger('user_id')->unsigned()->unique(); //для связи один-к-одному
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
             $table->enum("level_education",["Бакалавр", "Магистр", "Аспирант", "Доктор наук"]);
             $table->timestamps();
         });

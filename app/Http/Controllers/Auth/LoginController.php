@@ -43,7 +43,11 @@ class LoginController extends Controller
     }
     public function showLoginForm()
     {
-        return view('pages.loginPage');
+        $breadcrumbs = [
+            ['link' => route('mainPage'), 'text' => 'Домашняя страница'],
+            ['link'=>route('login'),'text'=>"Авторизация"]
+        ];
+        return view('pages.loginPage', compact("breadcrumbs"));
     }
 
 }

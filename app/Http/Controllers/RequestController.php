@@ -83,11 +83,11 @@ class RequestController extends Controller
         {
             return response()->json(['error'=>true, 'message'=>"Заявка не найдена!"]);
         }
-        if($request_from_bd->Status != "В рассмотрении")
+        if($request_from_bd->status != "В рассмотрении")
         {
             return response()->json(['error'=>true, 'message'=>"Заявка не может быть изменена, так как имеет статус отличный от \"В рассмотрении\"!"]);
         }
-        if($request_from_bd->user_id == $client_id)
+        if($request_from_bd->client_id == $client_id)
         {
             $request_from_bd->topic = $request->topic;
             $request_from_bd->description = $request->description;

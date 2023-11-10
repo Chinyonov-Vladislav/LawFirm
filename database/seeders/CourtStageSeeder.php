@@ -14,6 +14,21 @@ class CourtStageSeeder extends Seeder
      */
     public function run()
     {
-        CourtStage::factory()->count(5)->create();
+        //CourtStage::factory()->count(5)->create();
+        $court_stages = [
+            ['name'=>'Предварительное расследование'],
+            ['name'=>'Подготовительное заседание'],
+            ['name'=>'Подготовка к судебному процессу'],
+            ['name'=>'Судебное заседание'],
+            ['name'=>'Заключительные мероприятия'],
+            ['name'=>'Вынесение решения'],
+            ['name'=>'Апелляция']
+        ];
+        foreach ($court_stages as $court_stage)
+        {
+            CourtStage::create([
+                'name' => $court_stage['name'],
+            ]);
+        }
     }
 }

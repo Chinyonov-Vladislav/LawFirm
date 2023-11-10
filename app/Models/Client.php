@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+    protected $table="clients";
+    protected $fillable = [
+        "first_name",
+        "second_name",
+        "middle_name",
+        "number_phone",
+        "address",
+        "birthday",
+        'user_id',
+        'city_id',
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);

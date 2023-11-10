@@ -4,7 +4,8 @@
         <my-header></my-header>
         <div class="faq-area my_padding_top_bottom">
             <div class="container">
-                <div class="section-title">
+                <div class="section-title mt-faq-title text-center">
+                    <breadcrumbs :prop_breadcrumbs="breadcrumbs"></breadcrumbs>
                     <h2>Ответы на часто задаваемые вопросы<br>Юридические консультации от экспертов</h2>
                 </div>
                 <div class="row align-items-center">
@@ -148,7 +149,7 @@
             </div>
         </div>
         <!-- End FAQ Area -->
-        <footer></footer>
+        <my-footer></my-footer>
     </fragment>
 </template>
 
@@ -161,6 +162,7 @@ export default {
     created() {
         console.log("created");
         console.log(this.formErrors["NameErrors"]);
+        this.breadcrumbs = this.prop_breadcrumbs;
     },
     methods: {
         ControlElementOnForm(bool_block) {
@@ -242,6 +244,9 @@ export default {
             return hasError;
         }
     },
+    props:{
+        prop_breadcrumbs:{default:null}
+    },
     data() {
         return {
             loader: false,
@@ -260,6 +265,7 @@ export default {
                 SubjectErrors: [],
                 MessageErrors: []
             },
+            breadcrumbs:{default:null},
             questions: [
                 {
                     "question": "Вопрос: Какие документы мне нужны для подачи на развод?",

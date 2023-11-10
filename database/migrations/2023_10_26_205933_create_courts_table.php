@@ -19,7 +19,7 @@ class CreateCourtsTable extends Migration
             $table->string("address");
             $table->string("number_phone");
             $table->BigInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('city_id')->references('id')->on('cities')->restrictOnDelete();
             $table->timestamps();
         });
     }

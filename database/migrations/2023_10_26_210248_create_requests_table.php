@@ -20,7 +20,7 @@ class CreateRequestsTable extends Migration
             $table->date("date_request");
             $table->enum("status", ["В рассмотрении","Принято", "Отклонено"]);
             $table->BigInteger('client_id')->unsigned();
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('client_id')->references('id')->on('clients')->restrictOnDelete();
             $table->timestamps();
         });
     }

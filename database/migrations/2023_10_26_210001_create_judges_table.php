@@ -19,9 +19,9 @@ class CreateJudgesTable extends Migration
             $table->string("second_name");
             $table->string("middle_name");
             $table->BigInteger('position_id')->unsigned();
-            $table->foreign('position_id')->references('id')->on('positions');
+            $table->foreign('position_id')->references('id')->on('positions')->restrictOnDelete();
             $table->BigInteger('court_id')->unsigned();
-            $table->foreign('court_id')->references('id')->on('courts');
+            $table->foreign('court_id')->references('id')->on('courts')->restrictOnDelete();
             $table->timestamps();
         });
     }

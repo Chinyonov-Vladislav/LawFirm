@@ -16,9 +16,9 @@ class CreateCaseServicesTable extends Migration
         Schema::create('case_services', function (Blueprint $table) {
             $table->id();
             $table->BigInteger('instance_id')->unsigned();
-            $table->foreign('instance_id')->references('id')->on('instances');
+            $table->foreign('instance_id')->references('id')->on('instances')->restrictOnDelete();
             $table->BigInteger('service_lawyer_id')->unsigned();
-            $table->foreign('service_lawyer_id')->references('id')->on('service_lawyers');
+            $table->foreign('service_lawyer_id')->references('id')->on('service_lawyers')->restrictOnDelete();
             $table->timestamps();
         });
     }

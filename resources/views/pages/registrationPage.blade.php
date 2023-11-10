@@ -4,5 +4,7 @@
     Регистрация
 @endsection
 @section('content')
-    <registration-page></registration-page>
+    <registration-page
+        :prop_breadcrumbs='{!! json_encode($breadcrumbs) !!}'
+    ></registration-page>
 @endsection

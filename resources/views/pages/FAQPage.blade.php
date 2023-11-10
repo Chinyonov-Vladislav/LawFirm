@@ -4,5 +4,7 @@
     Часто задаваемые вопросы
 @endsection
 @section('content')
-    <faq-page></faq-page>
+    <faq-page
+        :prop_breadcrumbs='{!! json_encode($breadcrumbs) !!}'
+    ></faq-page>
 @endsection

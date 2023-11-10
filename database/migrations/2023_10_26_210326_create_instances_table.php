@@ -21,7 +21,7 @@ class CreateInstancesTable extends Migration
             $table->string("feedback")->nullable();
             $table->unsignedInteger("rating")->nullable();
             $table->BigInteger('request_id')->unsigned()->unique();
-            $table->foreign('request_id')->references('id')->on('users');
+            $table->foreign('request_id')->references('id')->on('requests')->restrictOnDelete();
             $table->timestamps();
         });
     }

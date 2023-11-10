@@ -16,10 +16,10 @@ class CreateServiceLawyersTable extends Migration
         Schema::create('service_lawyers', function (Blueprint $table) {
             $table->id();
             $table->BigInteger('service_id')->unsigned();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_id')->references('id')->on('services')->restrictOnDelete();
             $table->BigInteger('lawyer_id')->unsigned();
-            $table->foreign('lawyer_id')->references('id')->on('lawyers');
-            $table->decimal("Cost", 15, 2);
+            $table->foreign('lawyer_id')->references('id')->on('lawyers')->restrictOnDelete();
+            $table->decimal("cost", 15, 2);
             $table->timestamps();
         });
     }

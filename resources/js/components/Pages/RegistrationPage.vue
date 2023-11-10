@@ -3,12 +3,11 @@
         <my-preloader></my-preloader>
         <my-header></my-header>
         <!-- Start Sign up Area -->
-        <div class="sign-up-area ptb-100" style="margin-top: 137px;">
+        <div class="sign-up-area ptb-100">
             <div class="container">
-                <div class="section-title">
-                    <h2>Create an Account!</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quas cumque iste veniam id
-                        dolorem deserunt ratione error voluptas rem ullam.</p>
+                <div class="section-title mt-registration-title">
+                    <breadcrumbs :prop_breadcrumbs="breadcrumbs"></breadcrumbs>
+                    <h2>Регистрация</h2>
                 </div>
 
                 <div class="sign-up-form" >
@@ -69,9 +68,9 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn default-btn-one">Sign Up</button>
+                            <button type="submit" class="btn default-btn-one">Зарегистрироваться</button>
                             <p class="account-decs">
-                                Already have an account? <a href="/login">Sign In</a>
+                                Уже есть аккаунт? <a href="/login">Авторизоваться</a>
                             </p>
                         </div>
                     </form>
@@ -88,8 +87,12 @@ import Swal from "sweetalert2";
 
 export default {
     name: "RegistrationPage",
+    props:{
+        prop_breadcrumbs: {default:null}
+    },
     data() {
         return {
+            breadcrumbs:{default:null},
             username: "",
             email: "",
             password:"",
@@ -101,6 +104,9 @@ export default {
                 textConfirmPasswordErrors:[]
             }
         }
+    },
+    created(){
+      this.breadcrumbs = this.prop_breadcrumbs;
     },
     methods:{
         ControlElementOnForm(bool_block)
@@ -206,27 +212,36 @@ export default {
             this.errors.textConfirmPasswordErrors = [];
             if(this.username.length <=0)
             {
-                this.errors.textUsernameErrors.push({message: "Поле для ввода имени пользователя не заполнено!"});
+                this.errors.textUsernameErrors.push({"message": "Поле для ввода имени пользователя не заполнено!"});
                 hasError = true;
             }
             if(this.email.length <=0)
             {
-                this.errors.textEmailErrors.push({message: "Поле для ввода email-адреса не заполнено!"});
+                this.errors.textEmailErrors.push({"message": "Поле для ввода email-адреса не заполнено!"});
                 hasError = true;
+            }
+            else
+            {
+                let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+                if(!regex.test(this.email))
+                {
+                    this.errors.textEmailErrors.push({"message": "Введите корректный email-адрес!"});
+                    hasError = true;
+                }
             }
             if(this.password.length <8)
             {
-                this.errors.textPasswordErrors.push({message: "Текст в поле \"Пароль\" слишком короткий. Должно быть как минимум 8 символов!"})
+                this.errors.textPasswordErrors.push({"message": "Текст в поле \"Пароль\" слишком короткий. Должно быть как минимум 8 символов!"})
                 hasError = true;
             }
             if(this.confirm_password !== this.password)
             {
-                this.errors.textConfirmPasswordErrors.push({message: "Текст в полях \"Пароль\" и \"Подтверждение пароля\" не совпадают!"});
+                this.errors.textConfirmPasswordErrors.push({"message": "Текст в полях \"Пароль\" и \"Подтверждение пароля\" не совпадают!"});
                 hasError = true;
             }
             if (this.confirm_password === "")
             {
-                this.errors.textConfirmPasswordErrors.push({message: "Поле \"Подтверждение пароля\" не заполнено!"});
+                this.errors.textConfirmPasswordErrors.push({"message": "Поле \"Подтверждение пароля\" не заполнено!"});
                 hasError = true;
             }
             return hasError;

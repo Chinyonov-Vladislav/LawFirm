@@ -5,13 +5,18 @@
                 <div class="row">
                     <div class="col-lg-5 col-sm-6">
                         <div class="footer-widget">
-                            <div class="logo">
-                                <img src="/photos/logo-white.png" alt="logo">
+                            <div class="row">
+                                <div class="col-3">
+                                    <a class="navbar-brand" href="/">
+                                        <img src="/photos/logoBigWhite.png" alt="logo">
+                                    </a>
+                                    </div>
+                                <div class="col-9 d-flex justify-content-center flex-column">
+                                    <h6 style="color:white">Правовой Арсенал</h6>
+                                </div>
                             </div>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
-                                mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum.</p>
+
+                            <p>В мире правовых вызовов и решений, выбирайте надежный союз правовой экспертизы. Правовой Арсенал – ваш гарант компетентности, ваша поддержка в мире юридической уверенности. Мы защищаем ваши интересы, вооружившись знанием и опытом. Вместе – сильнее в каждом правовом вызове жизни</p>
 
                             <ul class="footer-socials">
                                 <li>
@@ -40,49 +45,44 @@
 
                     <div class="col-lg-2 col-sm-6">
                         <div class="footer-widget">
-                            <h3>Quick Links</h3>
+                            <h3>Ссылки</h3>
 
                             <ul class="footer-text">
                                 <li>
-                                    <a href="index.html">
+                                    <a href="/">
                                         <i class="las la-star"></i>
-                                        Home
+                                        Домашнаяя
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="about.html">
+                                    <a href="/lawyers">
                                         <i class="las la-star"></i>
-                                        About Us
+                                        Адвокаты
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="services.html">
+                                    <a href="/aboutUs">
                                         <i class="las la-star"></i>
-                                        Our Services
+                                        О нас
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="case-study.html">
+                                    <a href="/reviews">
                                         <i class="las la-star"></i>
-                                        Case Study
+                                        Отзывы
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/blog">
+                                        <i class="las la-star"></i>
+                                        Блог
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="blog.html">
+                                    <a href="/faq">
                                         <i class="las la-star"></i>
-                                        Our Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="las la-star"></i>
-                                        Clients Review
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="attorney.html">
-                                        <i class="las la-star"></i>
-                                        Our Attorneys
+                                        FAQ
                                     </a>
                                 </li>
                             </ul>
@@ -91,12 +91,12 @@
 
                     <div class="col-lg-2 col-sm-6" v-if="specializations.length>0">
                         <div class="footer-widget pl-50">
-                            <h3>Services</h3>
+                            <h3>Услуги</h3>
                             <ul class="footer-text">
                                 <li v-for="item in specializations">
                                     <a :href="'/specialization/'+item.id">
                                         <i class="las la-star"></i>
-                                        {{item.Name}}
+                                        {{item.name}}
                                     </a>
                                 </li>
                             </ul>
@@ -105,20 +105,20 @@
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
-                            <h3>Contact Info</h3>
+                            <h3>Контактные данные</h3>
 
                             <ul class="info-list">
                                 <li>
                                     <i class="las la-phone"></i>
-                                    <a href="tel:+0123456987">+0123 456 987</a>
+                                    <a href="##">+7(949) 456-73-89</a>
                                 </li>
                                 <li>
                                     <i class="las la-envelope"></i>
-                                    <a href="mailto:atorn@info.com">atorn@info.com</a>
+                                    <a href="##">example@gmail.com</a>
                                 </li>
                                 <li>
                                     <i class="las la-map-marker-alt"></i>
-                                    Silven House, 4 Lower Gilmor Bank Edinburgh EH3 9QP, UK
+                                    283001, г. Донецк, пр. Театральный, д. 13
                                 </li>
                             </ul>
                         </div>
@@ -128,8 +128,7 @@
         </footer>
         <div class="footer-bottom">
             <div class="container">
-                <p>Copyright @{{new Date().getFullYear()}} Atorn. All rights reserved <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
-                </p>
+                <p>Copyright @{{new Date().getFullYear()}} "Правовой арсенал".</p>
             </div>
         </div>
     </div>

@@ -3,12 +3,13 @@
         <my-preloader></my-preloader>
         <my-header></my-header>
         <div class="sign-in-area ptb-100">
-            <div class="container" style="margin-top: 137px;">
-                <div class="section-title">
+            <div class="container">
+                <div class="section-title mt-cabinet-client">
+                    <breadcrumbs :prop_breadcrumbs="breadcrumbs"></breadcrumbs>
                     <h2>Добро пожаловать в личный кабинет</h2>
                 </div>
             </div>
-            <div class="sign-in-form">
+            <div class="sign-in-form ">
                 <h2 class="text-center">Персональные данные</h2>
                 <form id="personalData" @submit.prevent="changeMode">
                     <div class="form-group mt-2">
@@ -76,22 +77,21 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
         <div class="service-area mt-5 mb-5">
             <div class="container">
-                <div class="section-title">
+                <div class="d-flex justify-content-center">
                     <h2>Мои заявки в адвокатское бюро</h2>
                 </div>
                 <div class="row align-items-center">
-                    <div class="col-lg-7 col-md-12">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12
+                    order-xl-first order-lg-first order-md-last order-sm-last order-last">
                         <template v-if="requests.length>0">
                             <div class="faq-accordion">
                                 <ul class="accordion">
                                     <li class="accordion-item" v-bind:class="{'d-none': item.id === null}"
-                                        v-for="item in paginatedData">
-                                        <a class="accordion-title" href="javascript:void(0)" >
+                                        v-for="item in paginatedDataForRequests">
+                                        <a class="accordion-title" href="javascript:void(0)">
                                             <i class="las la-plus"></i>
                                             Заявка №{{ item.id }}. Тема: {{ item.topic }}
                                         </a>
@@ -121,54 +121,115 @@
                                             </div>
                                         </div>
                                     </li>
-
                                 </ul>
                             </div>
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <button @click="previousPage"
-                                            v-bind:class="{'disabled':currentPage === 1}"
-                                            class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">«</span>
-                                    </button>
-                                </li>
-                                <li class="page-item"
-                                    v-for="pageNumber in visiblePageNumbers"
-                                    v-bind:class="{'active': pageNumber===currentPage}">
-                                    <button
-                                        :key="pageNumber"
-                                        @click="goToPage(pageNumber)"
-                                        class="page-link">{{ pageNumber }}
-                                    </button>
-                                </li>
-                                <li class="page-item">
-                                    <button @click="nextPage"
-                                            v-bind:class="{'disabled':currentPage === totalPages}"
-                                            class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">»</span>
-                                    </button>
-                                </li>
-                            </ul>
-                            <button id="make_request" @click="Create" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop"
-                                    class="btn default-btn-one w-100 mt-5">Создать заявку
-                            </button>
+                            <pagination
+                                ref="pagination_requests"
+                                @handlePaginateData="handlePaginateData"
+                                :array="request_from_server"
+                                :maxVisiblePages="maxVisiblePages"
+                                :itemsOnPage="itemsOnPageRequests"
+                                :namePagination="'requests'"
+                            ></pagination>
+
+                            <div class="d-flex flex-column mt-5">
+                                <button id="make_request" @click="Create" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"
+                                        class="btn default-btn-one">Создать заявку
+                                </button>
+                            </div>
                         </template>
                         <div class="d-flex flex-column" v-else>
                             <h2 class="text-center">У вас еще нет заявок. Обращайтесь к нам прямо сейчас</h2>
-                            <button id="make_request" @click="Create" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                            <button id="make_request" @click="Create" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
                                     class="btn default-btn-one">Создать заявку
                             </button>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12">
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12
+                    order-xl-last order-lg-last order-md-first order-sm-first order-first
+                    mb-xl-0 mb-lg-0 mb-md-2 mb-sm-2 mb-2">
                         <div class="faq-image">
-                            <img src="/photos/request.png" alt="image">
+                            <img src="/photos/request.png" class="img-fluid" alt="image">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <div class="service-area mt-5 mb-5">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <h2>Мои дела в адвокатской конторе</h2>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12
+                    order-xl-first order-lg-first order-md-last order-sm-last order-last">
+                        <template v-if="instances_from_server.length>0">
+                            <count-elements-table-page
+                                @changeCountElementsTable="changeCountElementsTable"
+                                :prop_name_table_elements="'instances'"
+                            ></count-elements-table-page>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Номер дела</th>
+                                        <th scope="col">Тема</th>
+                                        <th scope="col">Статус</th>
+                                        <th scope="col">Дата начала</th>
+                                        <th scope="col">Дата конца</th>
+                                        <th scope="col">Детальнее</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr v-for="item in paginatedDataForInstance">
+                                        <th scope="row">{{ item.instance_id }}</th>
+                                        <td>{{ item.topic }}</td>
+                                        <td>{{ item.status }}</td>
+                                        <td>{{ item.start_date }}</td>
+                                        <td>{{ item.end_date }}</td>
+                                        <td>
+                                            <a :href="'/infoInstance/'+item.instance_id" class="btn btn-danger">Детальнее</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <pagination
+                                @handlePaginateData="handlePaginateData"
+                                :array="instances_from_server"
+                                :maxVisiblePages="maxVisiblePages"
+                                :itemsOnPage="itemsOnPageInstance"
+                                :namePagination="'instances'"
+                            ></pagination>
+                        </template>
+                        <div class="d-flex flex-column" v-else-if="request_from_server.length>0">
+                            <h2 class="text-center">Ожидайте пока наши специалисты изучат вашу проблему</h2>
+
+                        </div>
+                        <div class="d-flex flex-column" v-else>
+                            <h2 class="text-center">Вы еще совершали заявку в наше агенство. Свяжитесь с нами прямо
+                                сейчас!</h2>
+                            <button id="make_request" @click="Create" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
+                                    class="btn default-btn-one">Создать заявку
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12
+                    order-xl-last order-lg-last order-md-first order-sm-first order-first
+                    mb-xl-0 mb-lg-0 mb-md-2 mb-sm-2 mb-2">
+                        <div class="faq-image">
+                            <img src="/photos/instances.png" class="img-fluid" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <my-footer></my-footer>
 
 
@@ -243,6 +304,7 @@ export default {
     data() {
         return {
             mode: "redact",
+            instances_from_server: null,
             id_redacted_request: null,
             new_request: {
                 topic: "",
@@ -255,327 +317,315 @@ export default {
                 errorsTheme: [],
                 errorsDescription: []
             },
-            birthday_client: this.data_client.Birthday,
+            birthday_client: {default:null},
             max_date: new Date(),
             locale: {lang: 'ru'},
             redactUserData: false,
             menu: false,
             copyUserData: null,
-            itemsOnPage: 5,
-            currentPage: 1,
+            itemsOnPageInstance: {default:0},
+            itemsOnPageRequests: 5,
             maxVisiblePages: 3,
+            paginatedDataForRequests: null,
+            paginatedDataForInstance: null,
+            breadcrumbs: {default: null}
         }
     },
     created() {
+        this.breadcrumbs = this.prop_breadcrumbs;
         this.max_date.setFullYear(this.max_date.getFullYear() - 18);
         this.request_from_server = this.requests;
-    },
-    computed: {
-        totalPages() {
-            return Math.ceil(this.request_from_server.length / this.itemsOnPage);
-        },
-        paginatedData() {
-            const startIndex = (this.currentPage - 1) * this.itemsOnPage;
-            const endIndex = startIndex + this.itemsOnPage;
-            let part = this.request_from_server.slice(startIndex, endIndex);
-            if(part.length <5)
-            {
-                while (part.length!==5)
-                {
-                    part.push({id:null, Topic:null});
-                }
+        this.birthday_client = this.data_client.birthday;
+        if (this.instances.length === 1) {
+            this.instances_from_server = [];
+            for (let i = 0; i < 8; i++) {
+                this.instances_from_server.push(this.instances[0]);
             }
-            return part;
-        },
-        visiblePageNumbers() {
-            const totalPages = this.totalPages;
-            const currentPage = this.currentPage;
-            const maxVisiblePages = this.maxVisiblePages;
-
-            if (totalPages <= maxVisiblePages) {
-                return Array.from({length: totalPages}, (_, index) => index + 1);
-            } else {
-                const half = Math.floor(maxVisiblePages / 2);
-                let start = currentPage - half;
-                let end = currentPage + half;
-
-                if (start <= 0) {
-                    start = 1;
-                    end = maxVisiblePages;
-                } else if (end > totalPages) {
-                    start = totalPages - maxVisiblePages + 1;
-                    end = totalPages;
-                }
-                return Array.from({length: end - start + 1}, (_, index) => start + index);
-            }
-        },
-    },
-    methods: {
-        Create() {
-            this.mode = "create";
-        },
-        Redact(item) {
-            this.new_request.topic = item.topic;
-            this.new_request.description = item.description;
-            this.mode = "redact";
-            this.id_redacted_request = item.id;
-        },
-        RemoveRequest(id_request) {
-            console.log("RemoveRequest");
-            console.log(id_request);
-            axios.delete("/deleteRequest/" + id_request)
-                .then((response) => {
-                    if (!response.data.error) {
-                        console.log(response);
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: "Заявка была успешно удалена",
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        const index = this.request_from_server.findIndex(item => item.id === id_request);
-                        if (index !== -1) {
-                            this.request_from_server.splice(index, 1);
-                            if (this.paginatedData.length === 0 && this.currentPage > 1) {
-                                this.currentPage -= 1;
-                            }
-
-                        }
-
-                    } else {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'error',
-                            title: response.data.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                    }
-                })
-                .catch((error) => {
-                    console.log("catch_error");
-                    console.log(error);
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: error.text,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                });
-        },
-        ClearDataNewRequest() {
-            this.new_request.topic = "";
-            this.new_request.description = "";
-            this.id_redacted_request = null;
-        },
-        ValidateAndSendData() {
-            let resultValidate = this.validate();
-            if (!resultValidate) {
-                if (this.mode === "create") {
-                    axios.post("/createRequest", this.new_request)
-                        .then((response) => {
-                            if (response.data.errors) // есть ошибки валидации
-                            {
-                                Object.keys(response.data.errors).map((key) => {
-                                    response.data.errors[key].map((elem) => {
-                                        if (elem === "topic") {
-                                            this.errorsNewRequests.errorsTheme.push({
-                                                message: elem
-                                            })
-                                        } else if (elem === "description") {
-                                            this.errorsNewRequests.errorsDescription.push({
-                                                message: elem
-                                            })
-                                        }
-                                    })
-                                });
-                            }
-                            if (response.data.error) // есть ошибка при сохранении данных
-                            {
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'error',
-                                    title: response.data.message,
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            } else {
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'success',
-                                    title: "Ваша заявка была успешно отправлена!",
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                                document.getElementById("CloseButton").click();
-                                this.request_from_server.push(response.data.new_request);
-                            }
-                        })
-                        .catch((error) => {
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'error',
-                                title: error.text,
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                        });
-                    // отправить данные
-                } else {
-                    const redacted_data = {
-                        id: this.id_redacted_request,
-                        topic: this.new_request.topic,
-                        description: this.new_request.description
-                    }
-                    axios.put("/redactRequest", redacted_data)
-                        .then((response) => {
-                            if (response.data.errors) // есть ошибки валидации
-                            {
-                                Object.keys(response.data.errors).map((key) => {
-                                    response.data.errors[key].map((elem) => {
-                                        if (elem === "topic") {
-                                            this.errorsNewRequests.errorsTheme.push({
-                                                message: elem
-                                            })
-                                        } else if (elem === "description") {
-                                            this.errorsNewRequests.errorsDescription.push({
-                                                message: elem
-                                            })
-                                        }
-                                    })
-                                });
-                            }
-                            if (response.data.error) // произошла ошибка
-                            {
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'success',
-                                    title: "Заявка была успешно изменена!",
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                                const index = this.request_from_server.findIndex(item => item.id === redacted_data.id);
-                                if (index !== -1) {
-                                    this.request_from_server[index].topic = redacted_data.topic;
-                                    this.request_from_server[index].description = redacted_data.description;
-                                }
-                                document.getElementById("CloseButton").click();
-                            } else {
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'error',
-                                    title: response.data.message,
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            }
-                        })
-                        .catch((error) => {
-                            Swal.fire({
-                                position: 'top-end',
-                                icon: 'error',
-                                title: error.text,
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                        });
-                }
-            }
-        },
-        validate() {
-            let hasError = false;
-            this.errorsNewRequests.errorsTheme = [];
-            this.errorsNewRequests.errorsDescription = [];
-            if (this.new_request.topic.length <= 0) {
-                hasError = true;
-                this.errorsNewRequests.errorsTheme.push({"message": "Введите тему вашего обращения"});
-            }
-            if (this.new_request.description.length <= 0) {
-                hasError = true;
-                this.errorsNewRequests.errorsDescription.push({"message": "Опишите вашу проблему"});
-            }
-            return hasError;
-        },
-        nextPage() {
-            if (this.currentPage < this.totalPages) {
-                this.currentPage++;
-            }
-        },
-        previousPage() {
-            if (this.currentPage > 1) {
-                this.currentPage--;
-            }
-        },
-        goToPage(pageNumber) {
-            this.currentPage = pageNumber;
-        },
-        cancelChanges() {
-            this.data_client = {...this.copyUserData};
-            this.birthday_client = this.copyUserData.birthday;
-            this.redactUserData = false;
-            document.getElementById("submit_button").textContent = "Редактировать";
-        },
-        changeMode() {
-            if (this.redactUserData) {
-                this.data_client.Birthday = this.birthday_client;
-                axios.post("/save_info_client", this.data_client).then((response) => {
-                    if (!response.data.error) {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: "Ваши данные были успешно сохранены",
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        this.copyUserData = {...this.data_client};
-                    } else {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'error',
-                            title: response.data.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                    }
-                }).catch((error) => {
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: error.message,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                });
-            }
-            let button_submit = document.getElementById("submit_button");
-            this.redactUserData = !this.redactUserData;
-            if (this.redactUserData) {
-                this.copyUserData = {...this.data_client};
-                button_submit.textContent = "Сохранить изменения";
-            } else {
-                button_submit.textContent = "Редактировать";
-            }
+        } else {
+            this.instances_from_server = this.instances;
         }
     },
+    methods:
+        {
+            changeCountElementsTable(data)
+            {
+                if(data.name_table === 'instances')
+                {
+                    this.itemsOnPageInstance = data.count;
+                }
+            },
+            handlePaginateData(data) {
+                if (data.namePagination === 'instances') {
+                    this.paginatedDataForInstance = data.itemsForPage;
+                } else if (data.namePagination === 'requests') {
+                    this.paginatedDataForRequests = data.itemsForPage;
+                }
+            },
+            Create() {
+                this.mode = "create";
+            },
+            Redact(item) {
+                this.new_request.topic = item.topic;
+                this.new_request.description = item.description;
+                this.mode = "redact";
+                this.id_redacted_request = item.id;
+            },
+            RemoveRequest(id_request) {
+                axios.delete("/deleteRequest/" + id_request)
+                    .then((response) => {
+                        if (!response.data.error) {
+                            console.log(response);
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: "Заявка была успешно удалена",
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            const index = this.request_from_server.findIndex(item => item.id === id_request);
+                            if (index !== -1) {
+                                this.$delete(this.request_from_server, index);
+                            }
+                            const index_in_paginated_requests = this.paginatedDataForRequests.findIndex(item=> item.id===id_request);
+                            if(index_in_paginated_requests !==-1)
+                            {
+                                this.$set(this.paginatedDataForRequests, index, {id: null, topic: null});
+                                let count_elements_null = 0;
+                                this.paginatedDataForRequests.forEach((item)=>{
+                                   if(item.id === null)
+                                   {
+                                       count_elements_null++;
+                                   }
+                                });
+                                if(count_elements_null === this.itemsOnPageRequests)
+                                {
+                                    this.$refs.pagination_requests.previousPage();
+                                }
+                                else {
+                                    this.$refs.pagination_requests.goToSamePage();
+                                }
+                            }
+                        } else {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: response.data.message,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("catch_error");
+                        console.log(error);
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: error.text,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    });
+            },
+            ClearDataNewRequest() {
+                this.new_request.topic = "";
+                this.new_request.description = "";
+                this.id_redacted_request = null;
+            },
+            ValidateAndSendData() {
+                let resultValidate = this.validate();
+                if (!resultValidate) {
+                    if (this.mode === "create") {
+                        axios.post("/createRequest", this.new_request)
+                            .then((response) => {
+                                if (response.data.errors) // есть ошибки валидации
+                                {
+                                    Object.keys(response.data.errors).map((key) => {
+                                        response.data.errors[key].map((elem) => {
+                                            if (elem === "topic") {
+                                                this.errorsNewRequests.errorsTheme.push({
+                                                    message: elem
+                                                })
+                                            } else if (elem === "description") {
+                                                this.errorsNewRequests.errorsDescription.push({
+                                                    message: elem
+                                                })
+                                            }
+                                        })
+                                    });
+                                }
+                                if (response.data.error) // есть ошибка при сохранении данных
+                                {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: response.data.message,
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                                else {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: "Ваша заявка была успешно отправлена!",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    document.getElementById("CloseButton").click();
+                                    this.request_from_server.push(response.data.new_request)
+                                    let index = this.paginatedDataForRequests.findIndex(x=>x.id===null);
+                                    if(index>-1)
+                                    {
+                                        this.$set(this.paginatedDataForRequests,index, response.data.new_request);
+                                    }
+                                }
+                            })
+                            .catch((error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: error.text,
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                            });
+                        // отправить данные
+                    } else {
+                        const redacted_data = {
+                            id: this.id_redacted_request,
+                            topic: this.new_request.topic,
+                            description: this.new_request.description
+                        }
+                        axios.put("/redactRequest", redacted_data)
+                            .then((response) => {
+                                if (response.data.errors) // есть ошибки валидации
+                                {
+                                    Object.keys(response.data.errors).map((key) => {
+                                        response.data.errors[key].map((elem) => {
+                                            if (elem === "topic") {
+                                                this.errorsNewRequests.errorsTheme.push({
+                                                    message: elem
+                                                })
+                                            } else if (elem === "description") {
+                                                this.errorsNewRequests.errorsDescription.push({
+                                                    message: elem
+                                                })
+                                            }
+                                        })
+                                    });
+                                }
+                                if (!response.data.error) // произошла ошибка
+                                {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: "Заявка была успешно отредактирована",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+
+                                    const index = this.request_from_server.findIndex(item => item.id === redacted_data.id);
+                                    if (index !== -1) {
+                                        this.request_from_server[index].topic = redacted_data.topic;
+                                        this.request_from_server[index].description = redacted_data.description;
+                                    }
+                                    document.getElementById("CloseButton").click();
+                                } else {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: response.data.message,
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                            })
+                            .catch((error) => {
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: error.text,
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            });
+                    }
+                }
+            },
+            validate() {
+                let hasError = false;
+                this.errorsNewRequests.errorsTheme = [];
+                this.errorsNewRequests.errorsDescription = [];
+                if (this.new_request.topic.length <= 0) {
+                    hasError = true;
+                    this.errorsNewRequests.errorsTheme.push({"message": "Введите тему вашего обращения"});
+                }
+                if (this.new_request.description.length <= 0) {
+                    hasError = true;
+                    this.errorsNewRequests.errorsDescription.push({"message": "Опишите вашу проблему"});
+                }
+                return hasError;
+            },
+
+            cancelChanges() {
+                this.data_client = {...this.copyUserData};
+                this.birthday_client = this.copyUserData.birthday;
+                this.redactUserData = false;
+                document.getElementById("submit_button").textContent = "Редактировать";
+            },
+            changeMode() {
+                if (this.redactUserData) {
+                    this.data_client.birthday = this.birthday_client;
+                    axios.post("/save_info_client", this.data_client).then((response) => {
+                        if (!response.data.error) {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: "Ваши данные были успешно сохранены",
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            this.copyUserData = {...this.data_client};
+                        } else {
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'error',
+                                title: response.data.message,
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    }).catch((error) => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: error.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    });
+                }
+                let button_submit = document.getElementById("submit_button");
+                this.redactUserData = !this.redactUserData;
+                if (this.redactUserData) {
+                    this.copyUserData = {...this.data_client};
+                    button_submit.textContent = "Сохранить изменения";
+                } else {
+                    button_submit.textContent = "Редактировать";
+                }
+            }
+        },
     props: {
         data_client: {
             default:
                 null,
-        }
-        ,
-        cities: {
-            default:
-                null
-        }
-        ,
-        requests: {
-            default:
-                null
-        }
-    }
-    ,
+        },
+        instances: {default: null},
+        cities: {default: null},
+        requests: {default: null},
+        prop_breadcrumbs: {default: null}
+    },
 }
 </script>
 

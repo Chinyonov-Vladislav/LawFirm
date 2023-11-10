@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Request extends Model
 {
     use HasFactory;
+    protected $table="requests";
+    protected $fillable = [
+        "topic",
+        "description",
+        "date_request",
+        "status",
+        'client_id'
+    ];
 
     public function Instance()
     {
